@@ -1,0 +1,405 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>论文在线投稿系统</title>
+<meta name="robots" content=",default,index, follow" />
+<meta name="googlebot" content="default,index, follow" />
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	}
+a:link {
+    color:#000000;
+	text-decoration: none;
+}
+a:visited {
+ color:#000000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration:underline;
+	color: #FF6633;
+}
+a:active {
+	text-decoration: none;
+}
+.point {
+	background-image: url(/images/3/patt_point.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+.style1 {font-size: 14px}
+.qt {
+	border: 1px solid #FF9900;
+}
+.style3 {
+	color: #CF661A;
+	font-weight: bold;
+}
+.style2 {color: #FF6633; font-size: 12px; }
+td {
+	font-family: "宋体";
+	font-size: 15px;
+	color: #000000;
+}
+.style16 {color: #CF661A}
+a.title:link {
+	color:#FF0000;
+		text-decoration: none;
+}
+a.title:visited {
+	color: #FF0000;
+		text-decoration: none;
+}
+a.title:hover {
+	color: #FF3300;
+	text-decoration: none;
+}
+td{
+color: #333333;
+}
+.style4 {color: #FF0000}
+input.b1{
+border-color:#999999;
+background-color:#3B5998;
+color:#FFFFFF;
+}
+a.title1:link {
+    color:#FFFFFF;
+	text-decoration: none;
+}
+a.title1:visited {
+ color:#FFFFFF;
+	text-decoration: none;
+}
+a.title1:hover {
+	text-decoration:underline;
+	color: #FF6633;
+}
+a.title1:active {
+	text-decoration: none;
+}
+-->
+</style>
+<script type="text/javascript" src="help.js"></script>
+<script type="text/javascript"> 
+<!--
+function   chkNum(ctr)     
+{   
+            
+  }
+function checkForm() 
+{ 
+    var   i,j,strTemp,NUM;   
+   	NUM=document.myform.postcode.value;   
+    strTemp="0123456789";  
+	//alert(document.myform.a1.value);
+	 if (document.myform.truename == null || document.myform.truename.value == '') 
+       { alert("请填写第一作者姓名！"); return false; } 
+	   if (document.myform.jiguan == null || document.myform.jiguan.value == '') 
+       { alert("请填写籍  贯！"); return false; }
+	   if (document.myform.phone == null || document.myform.phone.value == '') 
+       { alert("请填写手  机！"); return false; }    
+	    if (document.myform.tel == null || document.myform.tel.value == '') 
+       { alert("请填写其他作者电话！"); return false; }    
+	    if (document.myform.danwei == null || document.myform.danwei.value == '') 
+       { alert("请填写工作单位！"); return false; }    
+	    if (document.myform.school == null || document.myform.school.value == '') 
+       { alert("请填写毕业学校！"); return false; }    
+	    if (document.myform.postcode == null || document.myform.postcode.value == '') 
+       { alert("请填写邮政编码！"); return false; }    
+	    if (document.myform.fapiao == null || document.myform.fapiao.value == '') 
+       { alert("请填写发票抬头！"); return false; }    
+	    if (document.myform.yanjiu == null || document.myform.yanjiu.value == '') 
+       { alert("请填写研究方向！"); return false; }    
+	    if (document.myform.zhicheng == null || document.myform.zhicheng.value == '') 
+       { alert("请填写职称！"); return false; }   
+	    if(document.myform.a1.value == "1")
+		{
+		if (document.myform.address1 == null || document.myform.address1.value == ''|| document.myform.address2 == null || document.myform.address2.value == ''|| document.myform.address3 == null || document.myform.address3.value == ''|| document.myform.address4 == null || document.myform.address4.value == ''|| document.myform.address5 == null || document.myform.address5.value == '') 
+       { alert("请填写地址！"); return false; }  
+	   }
+	  if(document.myform.a1.value == "2")
+		{
+		if (document.myform.address == null || document.myform.address.value == '') 
+       { alert("请填写地址！"); return false; }  
+	   }
+
+    if   (   NUM.length!=   0)   
+   {   
+        for   (i=0;i<NUM.length;i++)   
+        {   
+                  j=strTemp.indexOf(NUM.charAt(i));           
+                  if   (j==-1)   
+                  {   
+                         alert("邮编必须是数字！");
+                         return false;   
+                  }   
+              }   
+          return true;   
+        }  
+} 
+//--> 
+</script>
+<link href="css/message.css" rel="stylesheet" type="text/css">
+<html>
+<head>
+<meta http-equiv="refresh" content="text/html; charset=gb2312">
+<title></title>
+
+<style type="text/css">
+a {
+color:#000000;
+text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+</body>
+</html>
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" >
+
+<table width="800" height="137" border="0" cellpadding="0" cellspacing="0" align="center" background="images/top.jpg">
+  <tr>
+    <td align="center" width="800" style="height:137px">
+	
+	<div id="divHelp" style="background-color: #D8DFEA; display: none; position: absolute;
+	padding: 10px;" align="right"></div>
+	</td>
+  </tr>
+  </table>
+ <table width="800" height="30" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#000000">
+   <tr>
+    <td align="left" width="400" style="height:30px">
+	&nbsp;&nbsp;<a class="title1" href="index.asp">首页</a>|<a class="title1" href="#">期刊搜索</a>|<a class="title1" href="#">留言本</a>|<a class="title1" href="lianxi.asp">联系我们</a>
+	</td>
+	<td lign="left" width="400" style="height:30px">
+	<marquee behavior="scroll" direction="left" scrollamount="3">
+	<font color="#FF6600">本社新闻：《计算机仿真》杂志社致作者的重要通知！详情请<a href="important.htm" ><font color="#FF6600">点击</font></a></font></marquee>
+	</td>
+  </tr>
+</table>
+<table width="800" height="676" border="0" cellpadding="0" cellspacing="0" align="center" background="images/top.gif">
+  <tr>
+    <td align="center" width="172" style="height:676" background="images/body_02.gif" valign="top">
+	<div class="blue">
+	<table width="98%" border="0" cellpadding="0" cellspacing="0">
+   <tr>
+    <td height="60" align="center" valign="bottom">
+	&nbsp;
+	
+	欢迎您<hr/>
+    </td>
+   </tr>
+   <tr>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;1.<a href="applyfirst.asp"  class="STYLE1">我要投稿</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left" target="_blank">&nbsp;&nbsp;&nbsp;2.<a href="http://compusimu.gnway.cc/tougao.asp" class="STYLE1">投稿流程</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;3.<a href="Userinfo.asp?flag=2" class="STYLE1">稿件查询</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;4.<a href="jiaofei.asp"  class="STYLE1">缴费帮助</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;5.<a href="Userinfo.asp?flag=1" class="STYLE1">用户信息修改</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;6.<a href="javascript:" class="STYLE1" onClick="help.open('modifypwd.asp',240,100,400,200)">修改密码</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;7.<a href="http://wcompusimu.gnway.cc/09secret.doc" class="STYLE1">保密函格式</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;8.<a href="http://compusimu.gnway.cc/2008contribute.doc" class="STYLE1">投稿模板</a>
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;9.<a href="cjwt.doc" class="STYLE1">常见问题<font color="red">new</font></a>
+     </td>
+   </tr>
+   
+   <tr>
+     <td height="30" align="left">&nbsp;&nbsp;&nbsp;10.<a href="logout.asp" class="STYLE1">登录/退出</a>
+     </td>
+    </tr>
+</table>
+</div>
+<br>
+<div class="blue">
+<table width="98%" border="0" cellpadding="0" cellspacing="0">
+   <tr>
+    <td height="60" align="center" valign="bottom">
+   </td>
+   </tr>
+   <tr>
+    <td height="30" align="left">
+    </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">
+     </td>
+   </tr>
+   <tr>
+     <td height="30" align="left">
+     </td>
+   </tr>
+</table>
+</div>
+	</td>
+	<td align="center" width="628" style="height:676" bgcolor="#E1F0F5" valign="top"><br>
+	
+	
+	<center><h3><strong>用户基本信息</strong></h3></center>
+	<center><font color="#FF0000" size="+2">下列各项为必填，请认真填写！</font></center>
+	<form name="myform" method="post" action="?action=save" onSubmit="javascript:return checkForm(this)">
+	<table width="80%" border="1" cellpadding="0" cellspacing="0">
+	
+	<input name="username" type="hidden" size="19" maxlength="20" height="20"/>
+	
+	<tr>
+	
+	<td align="left"width="80">
+	第一作者<br>姓名</td><td>
+	
+	<input name="truename" type="text" size="19" maxlength="20" height="20" /><br><font color="red">*第一作者填好后不允许修改，如若需要修改，请投稿后再联系编辑部。</font></td>
+	</tr>
+	<tr>
+	<td align="left">籍    贯</td>
+	<td>
+	
+	<input name="jiguan" type="text" size="19" maxlength="20" height="20"/>
+	</td>
+	</tr>
+	<tr>
+	<td align="left">性    别</td>
+	<td>
+	
+	<select name="sex"  >
+        <option selected="selected" value="0">-----请选择-----</option>
+        <option value="男">男</option><option value="女">女</option>
+        </select>
+		
+		</td>
+	</tr>
+	<tr>
+	<td align="left">工作单位</td>
+	<td><input name="danwei" type="text" size="19" maxlength="20" height="20"/>
+	</td>
+	</tr>
+	<tr>
+	<td align="left">最高学历</td>
+	<td>
+	<select name="xueli"  >
+        <option selected="selected" value="0">-----请选择-----</option>
+        <option value="本科">本科</option>
+		<option value="硕士">硕士</option>
+		<option value="博士">博士</option>
+        </select>
+		
+		</td>
+	</tr>
+	<tr>
+	<td align="left">毕业学校</td>
+	<td><input name="school" type="text" size="19" maxlength="20" height="20"/></td>
+	</tr>	
+	<tr>
+	<td align="left">职    称</td>
+	<td><input name="zhicheng" type="text" size="19" maxlength="20" height="20"/></td>
+	</tr>
+	<tr>
+	<td align="left">手    机</td>
+	<td>
+	<input name="phone" type="text" size="19" maxlength="20" height="20"  value="13266239537"/></td>
+	</tr>
+	<tr>
+	<td align="left">其他作者电话</td>
+	<td><input name="tel" type="text" size="19" maxlength="20" height="20"/></td>
+	</tr>
+	
+	
+	<tr>
+	<td align="left">邮    编</td>
+	<td><input name="postcode" type="text" size="19" maxlength="20" height="20"/></td>
+	</tr>
+	
+	<tr>
+	<td align="left">通信作者地址</td>
+	<td><input name="a1" type="hidden" value="1"/>
+	省、市/直辖市<input name="address1" type="text" size="15" maxlength="20" height="20"/>区/路/号<input name="address2" type="text" size="26" maxlength="20" height="20"/><br>单位名称<input name="address3" type="text" size="25" maxlength="30" height="20"/>具体院系/办公室<input name="address4" type="text" size="8" maxlength="30" height="20"/>收件人<input name="address5" type="text" size="15" maxlength="20" height="20"/>
+	
+	<br>
+	<font color="#FF0000">各项请尽可能详细填写<br>如：北京 海淀区阜成路14号 计算机仿真 编辑部（发票、录用通知、期刊等收信地址）</font>
+	</td>
+	</tr>
+	<tr>
+	<td align="left">贵方（购买方）<br>信息发票
+
+</td>
+	<td><font color="#FF0000">单位名称（必填）</font>
+	<input name="fapiao1" type="text" size="40" maxlength="40" height="20"  value=""/><br>
+	<font color="#FF0000">纳税人识别号（必填）</font>
+	<input name="fapiao2" type="text" size="40" maxlength="40" height="20"  value=""/><br>
+	<font color="#FF0000">地址、电话：</font>
+	<input name="fapiao3" type="text" size="40" maxlength="40" height="20"  value=""/><br>
+	<font color="#FF0000">开户行及账号：</font><input name="fapiao4" type="text" size="19" maxlength="50" height="20"/>
+	</td>
+	</tr>
+	<tr>
+	<tr>
+	<td align="left"></td>是否已填税号：是/否
+	<td><input name="fapiao" type="text" size="19" maxlength="50" height="20"/>
+	<font color="#FF0000">请与贵方财务落实上方税号，缺省不开具发票，已填写请输入：是，不开发票请填：否。</font>
+	</td>
+	</tr>
+	<tr>
+	<td align="left">研究方向</td>
+	<td><input name="yanjiu" type="text" size="19" maxlength="20" height="20"/></td>
+	</tr>
+	<tr>
+	<td align="left"><br>简介<br>（必填）</td>
+	<td>
+	
+           <textarea name="intro" cols="50" rows="13"  class="text">作者简介</textarea>
+	</td>
+	</tr>
+	<tr><td colspan="2" align="center" height="40" valign="middle">
+	<input class="b1" type="submit" value="&nbsp;保&nbsp;&nbsp;存&nbsp;"></td></tr>
+	</table>
+	</form>
+	
+	</td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2" style="height:3" background="images/bottom.gif">
+	</td>
+  </tr>
+	<tr>
+    <td align="center" colspan="2" style="height:50" bgcolor="#F5F5ED" valign="top"><font color="#FF6633"></font>
+          <font color="#000000"style="font-family:宋体; font-size:12px">
+      <br>版权所有： 《计算机仿真》杂志社 
+      <br>地址：北京海淀区阜成路14号《计算机仿真》杂志社电话：010-57793698，分机号：8009稿件查询、8002财务、8008出刊修改；<br>原投稿网址www.jsjfz.com 变更为：compusimu.gnway.cc；<br>010-68767186（暂停使用）请您电话咨询前查看左侧常见问题<br>传真：010-68373574 邮 编：100048  
+      <br>CopyRight 2007 All rights reserved.</font></td>
+  </tr>
+</table>
+</body>
+</html>
