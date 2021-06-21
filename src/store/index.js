@@ -17,8 +17,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getUserInfo(store) {
-      return getUserInfo().then(data => {
+    getProfile(store) {
+      return getProfile().then(data => {
         store.commit('setUserInfo', data.data)
         return data
       })

@@ -241,9 +241,9 @@ function count_num($table,$where){
 }
 // json数据格式整理
 function return_json($code,$data){
-    if($code == 0){
+    if($code == 200){
         $array = array(
-            'resultCode' => 0,
+            'resultCode' => 200,
             'msg'  => 'success',
             'data' => $data
         );

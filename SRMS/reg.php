@@ -23,4 +23,4 @@
 		
 	);
 	$add = insert('author',$arr);
-	return_json(0,'注册成功');
+	return_json(200,'注册成功');

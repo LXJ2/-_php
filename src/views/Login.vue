@@ -40,7 +40,6 @@
 </template>
 <script>
 // @ is an alias to /src
-import md5 from "md5";
 import { login } from "../api/api";
 export default {
   data() {
@@ -87,13 +86,13 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           let obj = {};
-          obj.password = this.ruleForm.password;
           obj.phone = this.ruleForm.phone;
+          obj.password = this.ruleForm.password;
           obj.position = this.form.position;
           console.log(obj);
-          login().then((data) => {
+          login(obj).then((data) => {
              console.log(data);
-            localStorage.setItem("srms_project_token", data.data.author_id);
+            localStorage.setItem("srms_project_token", data.data.creat_time);
             if (this.$route.query.from) {
               console.log("this.$route.query.from", this.$route.query.from);
               this.$router.replace(this.$route.query.from);
