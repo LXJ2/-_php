@@ -3,8 +3,7 @@
     class='myaside_box'
     width="200px"
   >
-    <div class="scroll_box">
-      <div class="welcome">欢迎您</div>
+    <div class="scroll_box" >
       <el-menu
         default-active="1-4-1"
         class="el-menu-vertical-demo"
@@ -13,20 +12,23 @@
         :collapse="isCollapse"
         router
         :default-active="$route.path"
+        open
       >
         <el-submenu
           :index="index+''"
-          v-for='(item,index) in navList'
+          v-for='(item,index) in $store.state.userRouters'
+          :key="index"
         >
           <template slot="title">
 
-            <span slot="title">{{item.groupName}}</span>
+            <span slot="title">{{item.title}}</span>
           </template>
           <el-menu-item
-            :index="k.path"
-            v-for='(k,i) in item.list'
+            :index="k.link"
+            v-for='(k,i) in item.children'
+            :key="i"
           >
-            <i class="el-icon-location"></i>{{k.meta.title}}
+            <i class="el-icon-location"></i>{{k.title}}
           </el-menu-item>
         </el-submenu>
 
@@ -53,37 +55,18 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(this.$store.state.userRouters);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
   },
   computed: {
-    navList() {
-      let ary = routes[0].children;
-      // console.log(ary);
-      let temp = []; //[{groupName:"xxx",list:[]},{groupName:"qqq",list:[]}]
-      ary.forEach((item) => {
-        let res = temp.filter((val) => val.groupName == item.meta.groupName);
-        if (!res.length) {
-          temp.push({
-            groupName: item.meta.groupName,
-            list:
-              this.$store.state.userInfo.userLevel >= item.meta.level
-                ? [item]
-                : [],
-          });
-        } else {
-          this.$store.state.userInfo.userLevel >= item.meta.level
-            ? res[0].list.push(item)
-            : null;
-        }
-      });
-
-      return temp;
-    },
+    
   },
+  created(){
+    // console.log($store.state.userRouters);
+  }
 };
 </script>
 <style lang="less">
@@ -102,5 +85,9 @@ export default {
       text-align: left;
     }
   }
+}
+.el-menu-vertical-demo{
+    margin-top: 90px;
+    
 }
 </style>

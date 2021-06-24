@@ -1,14 +1,16 @@
 <template>
   <el-container>
+    <!-- <SideBar /> -->
     <myaside />
     <el-container>
-      <el-header>Header {{userInfo.nickName}} {{userInfo.loginUserName}} <button @click='logout'>退出登录</button></el-header>
-
+      <el-header>Header <button >退出登录</button></el-header>
+      
       <el-main>
         <div class="content_box">
           <router-view></router-view>
         </div>
       </el-main>
+      <!-- <PageBoard /> -->
       <el-footer>   
       版权所有： 《xxxxxxxxx》杂志社 
       地址：北京海淀区阜成路14号《xxxxxxx》杂志社电话：010-57793698，分机号：8009稿件查询、8002财务、8008出刊修改;
@@ -21,32 +23,32 @@
 <script>
 // @ is an alias to /src
 import myaside from "../components/layout/aside";
-import { logout } from "../api/api";
+import SideBar from '@/components/SideBar';
+import PageBoard from '@/components/PageBoard';
+
 export default {
   name: "XXX",
   data() {
     return {};
   },
   created() {
-    this.getData();
+    
   },
   computed: {
-    userInfo() {
-      return this.$store.state.userInfo;
-    },
+    
   },
   methods: {
-    getData() {
-      // getProfile();
-      this.$store.dispatch("getProfile");
-    },
     logout() {
       logout().then(() => {
         this.$router.replace("/login");
       });
     },
   },
-  components: { myaside },
+  components: { 
+    SideBar,
+    myaside,
+    PageBoard
+    },
 };
 </script>
 <style lang="less">

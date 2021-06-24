@@ -85,11 +85,12 @@ export default {
       this.flag = false;
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          //store.dispatch('setUid')
+          this.$store.position = this.form.position;
           let obj = {};
           obj.phone = this.ruleForm.phone;
           obj.password = this.ruleForm.password;
           obj.position = this.form.position;
-          console.log(obj);
           login(obj).then((data) => {
              console.log(data);
             localStorage.setItem("srms_project_token", data.data.creat_time);

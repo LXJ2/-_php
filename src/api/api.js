@@ -13,5 +13,10 @@ export function login(data) {
     return data
   })
 } 
+
+export function getUserRouters (data){
+  return http.get('/routes.php?position='+ data)
+}
+ 
 //return http.post('login.php?phone='+params.phone+'&password='+params.password+'&position='+params.position)
 //return http.post('/login.php')

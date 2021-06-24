@@ -12,7 +12,7 @@ var http = axios.create({
 // 添加请求拦截器
 http.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
-   console.log(config)
+   //console.log(config)
   config.headers.token = localStorage.getItem('srms_project_token')
   
   return config;

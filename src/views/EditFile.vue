@@ -1,6 +1,6 @@
 <template>
     <div>
-      完善信息  
+       查看待审稿件 
     </div>
 </template>
 <script>

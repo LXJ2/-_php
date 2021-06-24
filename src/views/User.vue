@@ -1,7 +1,9 @@
 <template>
     <div>
-      我要投稿  
+        <h1>个人信息</h1>
+        <router-view />
     </div>
+
 </template>
 <script>
 // @ is an alias to /src

@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        稿件通知
     </div>
 </template>
 <script>
