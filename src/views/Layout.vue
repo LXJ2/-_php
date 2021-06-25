@@ -27,7 +27,7 @@ import SideBar from '@/components/SideBar';
 import PageBoard from '@/components/PageBoard';
 
 export default {
-  name: "XXX",
+  name: "Layout",
   data() {
     return {};
   },

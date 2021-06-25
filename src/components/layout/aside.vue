@@ -5,17 +5,17 @@
   >
     <div class="scroll_box" >
       <el-menu
-        default-active="1-4-1"
+        default-active="/home"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
         :collapse="isCollapse"
         router
         :default-active="$route.path"
-        open
       >
         <el-submenu
-          :index="index+''"
+          v-if="item.children && item.children.length > 0"
+          :index="item.path"
           v-for='(item,index) in $store.state.userRouters'
           :key="index"
         >
@@ -24,12 +24,23 @@
             <span slot="title">{{item.title}}</span>
           </template>
           <el-menu-item
-            :index="k.link"
+            :index="k.path"
             v-for='(k,i) in item.children'
             :key="i"
           >
             <i class="el-icon-location"></i>{{k.title}}
           </el-menu-item>
+        </el-submenu>
+
+        <el-submenu
+          v-else
+          :index="item.path"
+          v-for='(item,index) in $store.state.userRouters'
+          :key="index"
+        >
+          <template slot="title">
+         <span slot="title">{{item.title}}</span>
+          </template>
         </el-submenu>
 
         
@@ -55,17 +66,17 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(this.$store.state.userRouters);
+      //console.log(this.$store.state.userRouters);
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      //console.log(key, keyPath);
     },
   },
   computed: {
     
   },
   created(){
-    // console.log($store.state.userRouters);
+     console.log(this.$store.state.userRouters);
   }
 };
 </script>

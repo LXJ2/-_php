@@ -30,7 +30,7 @@ function generateRouter (userRouters) {
     let routes = {
       path: r.path,
       name: r.name,
-      component: () => import(`@/views/${r.name}`)
+      component: () => import(/* webpackChunkName: "home" */ `../components/layout/${r.name}.vue`)
     }
 
     if (r.children) {
