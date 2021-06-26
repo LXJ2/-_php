@@ -1,7 +1,7 @@
 <?php
-include 'route.php';
-include 'user.php';
-include 'function.php';
+include 'utils/route.php';
+include 'utils/user.php';
+include 'utils/function.php';
 $routes = routeData();
 $users = userData();
 $uid = $_GET['position'];

@@ -1,5 +1,5 @@
 <?php
-	include 'function.php';
+	include 'utils/function.php';
 	if(empty($_POST['phone'])){
 		return_json(1,'手机号不能为空');
 	}

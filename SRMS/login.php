@@ -4,7 +4,7 @@
     // header('Access-Control-Allow-Methods:POST,GET,OPTIONS,DELETE'); // 允许请求的类型
     // header('Access-Control-Allow-Credentials: true'); // 设置是否允许发送 cookies
     // header('Access-Control-Allow-Headers: Content-Type,Content-Length,Accept-Encoding,X-Requested-with, Origin'); // 设置允许自定义请求头的字段
-	include 'function.php';
+	include 'utils/function.php';
 
 	if(empty($_POST['phone'])){
 		return_json(1,'请输入手机号');

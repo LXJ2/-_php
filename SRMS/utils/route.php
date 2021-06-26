@@ -82,17 +82,45 @@ function routeData(){
   ),
   array(    
     'id' => 13,
+    'pid' => 12,
+    'path' => '/authorEdit/addAuthor',
+    'name' => 'AddAuthor',
+    'title' => '增加作者'
+  ),
+  array(    
+    'id' => 14,
+    'pid' => 12,
+    'path' => '/authorEdit/adminAuthor',
+    'name' => 'AdminAuthor',
+    'title' => '管理作者'
+  ),
+  array(    
+    'id' => 15,
     'pid' => 0,
     'path' => '/fileEdit',
     'name' => 'FileEdit',
     'title' => '稿件管理'
   ),
   array(    
-    'id' => 14,
+    'id' => 16,
+    'pid' => 15,
+    'path' => '/fileEdit/add',
+    'name' => 'FileEdit',
+    'title' => '管理稿件'
+  ),
+  array(    
+    'id' => 17,
     'pid' => 0,
     'path' => '/editorEdit',
     'name' => 'EditorEdit',
     'title' => '审稿人管理'
+  ),
+  array(    
+    'id' => 18,
+    'pid' => 17,
+    'path' => '/editorEdit/add',
+    'name' => 'AddEditorEdit',
+    'title' => '增加审稿人'
   ),
  );
   return $route;

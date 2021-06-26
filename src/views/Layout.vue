@@ -1,16 +1,16 @@
 <template>
   <el-container>
-    <!-- <SideBar /> -->
     <myaside />
     <el-container>
-      <el-header>Header <button >退出登录</button></el-header>
+      <el-header>
+        <el-avatar size="small" :src="circleUrl"></el-avatar> <button >退出登录</button>
+      </el-header>
       
       <el-main>
         <div class="content_box">
           <router-view></router-view>
         </div>
       </el-main>
-      <!-- <PageBoard /> -->
       <el-footer>   
       版权所有： 《xxxxxxxxx》杂志社 
       地址：北京海淀区阜成路14号《xxxxxxx》杂志社电话：010-57793698，分机号：8009稿件查询、8002财务、8008出刊修改;
@@ -23,13 +23,12 @@
 <script>
 // @ is an alias to /src
 import myaside from "../components/layout/aside";
-import SideBar from '@/components/SideBar';
-import PageBoard from '@/components/PageBoard';
-
 export default {
   name: "Layout",
   data() {
-    return {};
+    return {
+      circleUrl: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+    };
   },
   created() {
     
@@ -45,9 +44,7 @@ export default {
     },
   },
   components: { 
-    SideBar,
     myaside,
-    PageBoard
     },
 };
 </script>
@@ -74,10 +71,14 @@ export default {
 main.el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  // line-height: 160px;
-  padding: 0;
+  
+  
   .content_box {
+    //position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
     height: 100%;
     overflow-y: scroll;
   }
