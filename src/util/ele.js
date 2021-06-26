@@ -1,17 +1,13 @@
-import {
-  Button, Input, Form, FormItem,
-  MessageBox, Container, Aside, Header,
-  Footer, Main, Menu, MenuItem, MenuItemGroup,
-  Submenu, Table, TableColumn, Pagination, Dialog,
-  Upload, Popconfirm, Select, Option, Message
-} from 'element-ui'
-import Vue from 'vue'
+import { Aside, Avatar, Button, Container, Dialog, Footer, Form, FormItem, Header, Input, Main, Menu, MenuItem, MenuItemGroup, Message, MessageBox, Option, Pagination, Popconfirm, Select, Submenu, Table, TableColumn, Upload } from 'element-ui';
+import Vue from 'vue';
 
 [Button, Input, Form, FormItem,
   Container, Aside, Header, Footer,
   Main, Menu, MenuItem, MenuItemGroup,
   Submenu, Table, TableColumn, Pagination, Dialog,
-  Upload, Popconfirm, Select, Option].forEach(item => {
+  Upload, Popconfirm, Select, Option,
+  Avatar
+].forEach(item => {
     Vue.use(item)
   })
 // Vue.use(Button)

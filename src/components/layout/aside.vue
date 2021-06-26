@@ -14,7 +14,6 @@
         :default-active="$route.path"
       >
         <el-submenu
-          v-if="item.children && item.children.length > 0"
           :index="item.path"
           v-for='(item,index) in $store.state.userRouters'
           :key="index"
@@ -31,20 +30,6 @@
             <i class="el-icon-location"></i>{{k.title}}
           </el-menu-item>
         </el-submenu>
-
-        <el-submenu
-          v-else
-          :index="item.path"
-          v-for='(item,index) in $store.state.userRouters'
-          :key="index"
-        >
-          <template slot="title">
-         <span slot="title">{{item.title}}</span>
-          </template>
-        </el-submenu>
-
-        
-
       </el-menu>
     </div>
   </el-aside>

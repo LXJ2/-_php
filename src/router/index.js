@@ -1,8 +1,6 @@
-import { generateRouter } from '@/libs/utils';
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store';
-import Layout from '../views/Layout.vue';
 Vue.use(VueRouter)
 
 
@@ -22,17 +20,7 @@ export const routes = [
   {
     path: '/',
     name: 'Layout',
-    component: Layout,
-    //redirect: '/user',
-    children: [
-      {
-        path: '/home',
-        name: 'Home',
-        component: () => import(/* webpackChunkName: "home" */ '../components/layout/Home.vue')
-      },
-      
-    ],
-    //component: () => import(/* webpackChunkName: "about" */ '../views/Layout.vue'),
+    redirect: '/home'
   },
   {
     path: '/login',
@@ -51,22 +39,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-router.beforeEach(async (to, from, next) => {
-  if (!store.state.hasAuth) {
-    await store.dispatch('setUserRouters');
-    const newRoutes = generateRouter(store.state.userRouters);
-    newRoutes.forEach(item => {
-      router.options.routes[0].children.push(item);
-    });
-    //console.log(router,newRoutes);
-    console.log(router.options.routes[0].children);
-    //router.addRoutes(newRoutes);
-    
-    next()
-  } else {
-    next('/login')
-  }
-})
+
 /* router.beforeEach((to, from, next) => {
   if (to.path !== '/login') {
     if (localStorage.getItem('srms_project_token')) {
