@@ -1,6 +1,7 @@
 <template>
     <div>
         审稿人管理
+   <router-view /> 
     </div>
 </template>
 <script>

@@ -1,5 +1,5 @@
 export default {
-    uid: 2,
+    uid: localStorage.getItem('uid'),
     hasAuth: false,
     userRouters: [],
     userInfo:'',

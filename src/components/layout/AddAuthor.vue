@@ -1,7 +1,6 @@
 <template>
     <div>
-        作者管理
-   <router-view /> 
+       增加作者 
     </div>
 </template>
 <script>

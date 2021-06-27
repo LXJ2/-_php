@@ -40,20 +40,6 @@ const router = new VueRouter({
   routes
 })
 
-/* router.beforeEach((to, from, next) => {
-  if (to.path !== '/login') {
-    if (localStorage.getItem('srms_project_token')) {
-      if (to.meta.level > store.state.userInfo.userLevel) {
-        next('/404')
-        return
-      }
-      next()
-    } else {
-      next('/login')
-    }
-  }
-  next()
 
-}) */
 
 export default router

@@ -1,6 +1,7 @@
 <template>
     <div>
         稿件管理
+   <router-view /> 
     </div>
 </template>
 <script>

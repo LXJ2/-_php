@@ -4,6 +4,7 @@
     width="200px"
   >
     <div class="scroll_box" >
+      
       <el-menu
         default-active="/home"
         class="el-menu-vertical-demo"
@@ -61,7 +62,7 @@ export default {
     
   },
   created(){
-     console.log(this.$store.state.userInfo);
+    // console.log(this.$store.state.userInfo);
   }
 };
 </script>

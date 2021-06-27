@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      console.log(666);
+      //console.log(666);
       if (!this.flag) return;
       this.flag = false;
       this.$refs[formName].validate((valid) => {
@@ -91,11 +91,11 @@ export default {
           obj.password = this.ruleForm.password;
           obj.position = this.form.position;
           login(obj).then((data) => {
-            console.log(data);
+            //console.log(data);
              store.commit('setUserInfo',data.data)
              store.commit('setUid', this.form.position);
-             
-            localStorage.setItem("srms_project_token", data.data.creat_time);
+             localStorage.setItem("uid", this.form.position);
+            localStorage.setItem("srms_project_token", data.data.create_time);
             if (this.$route.query.from) {
               console.log("this.$route.query.from", this.$route.query.from);
               this.$router.replace(this.$route.query.from);

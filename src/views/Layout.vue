@@ -3,8 +3,9 @@
     <myaside />
     <el-container>
       <el-header>
-        <el-avatar size="small" :src="circleUrl"></el-avatar>
-        <button >退出登录</button>
+        <el-link type="success">{{this.userInfo.name}}欢迎您</el-link>
+        <el-avatar size="small" :src="circleUrl" ></el-avatar>
+        <button @click="logout()">退出登录</button>
       </el-header>
       
       <el-main>
@@ -24,23 +25,37 @@
 <script>
 // @ is an alias to /src
 import myaside from "../components/layout/aside";
+import { getUserInfo,logout } from '../api/api';
+import store from '../store';
+
 
 export default {
   name: "Layout",
   data() {
     return {
       circleUrl: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+      userInfo: '',
     };
   },
   created() {
-    console.log(this.$store.state.userInfo.name);
+    let obj = {};
+    obj.position = this.$store.state.uid;
+    obj.create_time = localStorage.getItem('srms_project_token');
+    getUserInfo(obj).then( data => {
+      this.userInfo = data.data;
+      store.commit('setUserInfo',data.data);
+      
+    })
   },
   computed: {
     
   },
   methods: {
     logout() {
-      logout().then(() => {
+      let obj = {};
+    obj.position = this.$store.state.uid;
+    obj.create_time = localStorage.getItem('srms_project_token');
+      logout(obj).then(() => {
         this.$router.replace("/login");
       });
     },

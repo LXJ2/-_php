@@ -13,11 +13,23 @@
 		return_json(1,'请输入密码');
 	}
 	if($_POST['position'] == 1){
-		$user = find('author','*','status=1 AND phone='.$_POST['phone']);
+		$user = find('author','*','phone='.$_POST['phone']);
+         $ary = array(
+           'status' => 1,
+	      );
+        update('author',$ary,'phone='.$_GET['phone']);
 	}else if ($_POST['position'] ==2){
-		$user = find('editor','*','status=1 AND phone='.$_POST['phone']);
+		$user = find('editor','*','phone='.$_POST['phone']);
+        $ary = array(
+           'status' => 1,
+	      );
+        update('author',$ary,'phone='.$_GET['phone']);
 	} else {
 		$user = find('administrator','*','phone='.$_POST['phone']);
+		$ary = array(
+           'status' => 1,
+	      );
+        update('author',$ary,'phone='.$_GET['phone']);
 	}
 	
 	if(empty($user)){
@@ -26,4 +38,5 @@
 	if($user['password'] != sha1($_POST['password'])){
 		return_json(1,'密码错误');
 	}
+
 	return_json(200,$user);

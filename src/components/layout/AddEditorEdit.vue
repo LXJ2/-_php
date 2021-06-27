@@ -1,7 +1,6 @@
 <template>
     <div>
-        作者管理
-   <router-view /> 
+        增加审稿人
     </div>
 </template>
 <script>
