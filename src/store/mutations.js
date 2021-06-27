@@ -5,8 +5,11 @@ export default {
     setUserRouters (state, userRouters) {
       state.userRouters = userRouters;
     },
-    /* setUid (state,uid){
-
-    } */
+    setUid (state,uid){
+      state.uid = uid;
+    },
+    setUserInfo(state, payload){
+      state.userInfo = payload;
+    }
 
   }

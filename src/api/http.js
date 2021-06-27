@@ -26,8 +26,9 @@ http.interceptors.response.use(function (response) {
   // 对响应数据做点什么
   //  做一些出错的处理
   let data = response.data;
+  console.log(6,data);
   console.log(data.resultCode)
-  if (data.resultCode != 200) {
+  if (data.resultCode !== 200) {
     Vue.prototype.$alert(data.msg, '警告', {
       confirmButtonText: '确定',
       type: 'error',

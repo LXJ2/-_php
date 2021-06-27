@@ -61,7 +61,7 @@ export default {
     
   },
   created(){
-     console.log(this.$store.state.userRouters);
+     console.log(this.$store.state.userInfo);
   }
 };
 </script>

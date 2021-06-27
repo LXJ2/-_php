@@ -3,7 +3,8 @@
     <myaside />
     <el-container>
       <el-header>
-        <el-avatar size="small" :src="circleUrl"></el-avatar> <button >退出登录</button>
+        <el-avatar size="small" :src="circleUrl"></el-avatar>
+        <button >退出登录</button>
       </el-header>
       
       <el-main>
@@ -23,6 +24,7 @@
 <script>
 // @ is an alias to /src
 import myaside from "../components/layout/aside";
+
 export default {
   name: "Layout",
   data() {
@@ -31,7 +33,7 @@ export default {
     };
   },
   created() {
-    
+    console.log(this.$store.state.userInfo.name);
   },
   computed: {
     

@@ -11,8 +11,8 @@
       <el-form-item label="身份">
         <el-select v-model="form.position" placeholder="请选择身份">
           <el-option label="作者" value= 1></el-option>
-          <el-option label="审稿人" value= 0></el-option>
-          <el-option label="管理员" value= 2></el-option>
+          <el-option label="审稿人" value= 2></el-option>
+          <el-option label="管理员" value= 3></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="电话" prop="phone">
@@ -41,6 +41,7 @@
 <script>
 // @ is an alias to /src
 import { login } from "../api/api";
+import store from '../store';
 export default {
   data() {
     var validatePass = (rule, value, callback) => {
@@ -85,14 +86,15 @@ export default {
       this.flag = false;
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          //store.dispatch('setUid')
-          this.$store.position = this.form.position;
           let obj = {};
           obj.phone = this.ruleForm.phone;
           obj.password = this.ruleForm.password;
           obj.position = this.form.position;
           login(obj).then((data) => {
-             console.log(data);
+            console.log(data);
+             store.commit('setUserInfo',data.data)
+             store.commit('setUid', this.form.position);
+             
             localStorage.setItem("srms_project_token", data.data.creat_time);
             if (this.$route.query.from) {
               console.log("this.$route.query.from", this.$route.query.from);

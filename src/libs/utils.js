@@ -40,7 +40,6 @@ function generateRouter (userRouters) {
     return routes;
     
   });
-  console.log(newRouters);
   return newRouters;
 }
 

@@ -31,7 +31,7 @@ export const routes = [
     path: '/404',
     name: 'nofound',
     component: () => import(/* webpackChunkName: "nofound" */ '../views/404.vue')
-  }
+  },
 ]
 
 const router = new VueRouter({
