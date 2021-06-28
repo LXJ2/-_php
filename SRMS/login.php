@@ -17,19 +17,19 @@
          $ary = array(
            'status' => 1,
 	      );
-        update('author',$ary,'phone='.$_GET['phone']);
+        update('author',$ary,'phone='.$_POST['phone']);
 	}else if ($_POST['position'] ==2){
 		$user = find('editor','*','phone='.$_POST['phone']);
         $ary = array(
            'status' => 1,
 	      );
-        update('author',$ary,'phone='.$_GET['phone']);
+        update('editor',$ary,'phone='.$_POST['phone']);
 	} else {
 		$user = find('administrator','*','phone='.$_POST['phone']);
 		$ary = array(
            'status' => 1,
 	      );
-        update('author',$ary,'phone='.$_GET['phone']);
+        update('administrator',$ary,'phone='.$_POST['phone']);
 	}
 	
 	if(empty($user)){
