@@ -26,6 +26,9 @@ export function getUserInfo(params){
     params: params
   })
 }
- 
+
+export function updataUserInfo(data) {
+  return http.post('/updataUserInfo.php',qs.stringify(data));  
+}
 //return http.post('login.php?phone='+params.phone+'&password='+params.password+'&position='+params.position)
 //return http.post('/login.php')

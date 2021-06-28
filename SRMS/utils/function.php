@@ -154,7 +154,7 @@ function insert($table,$data=[]){
  * @param $table
  * @param $data
  * @return bool
- */
+ */ 
 function update($table,$data=[], $where='') {
     //连接pdo
     $pdo = connect();

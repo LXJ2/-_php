@@ -2,14 +2,14 @@
  <div>   
     修改密码
 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-    <el-form-item label="旧密码" prop="oldPassword">
-    <el-input type="password" v-model.number="ruleForm.oldPassword"></el-input>
+    <el-form-item label="旧密码" prop="oldPassword" >
+    <el-input type="password" v-model.number="ruleForm.oldPassword" placeholder="请输入旧密码"></el-input>
   </el-form-item>
   <el-form-item label="新密码" prop="newPassword">
-    <el-input type="password" v-model="ruleForm.newPassword" autocomplete="off"></el-input>
+    <el-input type="password" v-model="ruleForm.newPassword" autocomplete="off" placeholder="请输入新密码"></el-input>
   </el-form-item>
   <el-form-item label="确认密码" prop="newPassword2">
-    <el-input type="password" v-model="ruleForm.newPassword2" autocomplete="off"></el-input>
+    <el-input type="password" v-model="ruleForm.newPassword2" autocomplete="off" placeholder="请再次输入密码"></el-input>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
@@ -82,3 +82,8 @@
     }
   }
 </script>
+<style lang="less">
+.el-form{
+    width: 60%;
+}
+</style>

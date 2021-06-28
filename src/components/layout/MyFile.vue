@@ -1,6 +1,6 @@
 <template>
     <div>
-        我的稿件
+        
 <router-view />
     </div>
 
