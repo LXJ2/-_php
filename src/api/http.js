@@ -3,7 +3,7 @@ import Vue from 'vue';
 var http = axios.create({
   baseURL:  process.env.NODE_ENV == 'development' ? '' : 'http://www.srms.cn',
   headers:{
-     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8/',
   }
   
 });

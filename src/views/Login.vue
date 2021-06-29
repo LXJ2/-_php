@@ -101,9 +101,10 @@ export default {
               this.$router.replace(this.$route.query.from);
             } else {
               this.$router.replace("/");
+
             }
             this.flag = true;
-            // window.location.href='';
+            //window.location.href='';
           });
         } else {
           console.log("error submit!!");

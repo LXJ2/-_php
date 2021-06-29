@@ -21,7 +21,7 @@ router.beforeEach(async (to, from, next) => {
           path:'*',
           redirect: '/404'
         }])
-        console.log(router);
+        //console.log(router);
         next({path: to.path});
         return;
     }

@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
- <meta name="format-detection" content="telephone=no" /> 
-<title>文件下载</title>
-<meta charset="utf-8" />
+    <meta charset="utf-8">
+    <title>文件上传</title>
 </head>
 <body>
-
-<a href="download.php?filename=http://www.srms.cn:90/files/8cd229074e3b400f2236081bcd05de0b.gif">通过程序下载1.jpg</a>
+    <form method="post" action="upload.php" enctype="multipart/form-data">
+        上传文件：<input type="file" name="myfile"><br>
+                  <input type="submit" value="上传文件">
+    </form>
 </body>
 </html>

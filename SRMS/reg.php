@@ -11,7 +11,7 @@
 		return_json(3,'手机号已存在');
 	}
 	$arr = array(
-		'name' => isset($_POST['name']) ? $_POST['name'] : $_POST['phone'],
+		'name' => isset($_POST['name']) ? $_POST['name'] : $_POST['phone',
 		'phone' => $_POST['phone'],
 		'password' => sha1($_POST['password']),
         'level' => isset($_POST['level']) ? $_POST['level'] : '',
@@ -23,8 +23,4 @@
 		
 	);
 	$add = insert('author',$arr);
-	$ary = array(
-        'status' => 1,
-	);
-	update('author',$ary,'phone='.$_POST['phone']);
 	return_json(200,'注册成功');

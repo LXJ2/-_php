@@ -30,5 +30,22 @@ export function getUserInfo(params){
 export function updataUserInfo(data) {
   return http.post('/updataUserInfo.php',qs.stringify(data));  
 }
+
+export function upload(data){
+  return http({
+    method: 'POST',
+    url:'/upload.php',
+    data: data,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    }
+  })
+}
+
+export function uploadFile(data) {
+  return http.post('/upload.php',qs.stringify(data));  
+}
+  
+
 //return http.post('login.php?phone='+params.phone+'&password='+params.password+'&position='+params.position)
 //return http.post('/login.php')

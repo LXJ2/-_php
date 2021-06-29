@@ -16,8 +16,10 @@ if (!file_exists($path)) {  //当目录不存在，就创建目录
 }
 //得到唯一的文件名！防止因为文件名相同而产生覆盖
 $uniName=md5(uniqid(microtime(true),true)).'.'.$ext;
+
 //目标存放文件地址
 $destination=$path."/".$uniName;
+echo $destination;
 //当文件上传成功，存入临时文件夹，服务器端开始判断
 if ($error==0) {
   if ($size>$maxSize) {
@@ -33,6 +35,7 @@ if ($error==0) {
   // if (!getimagesize($tmp_name)) {//getimagesize真实返回数组，否则返回false
   //   exit("不是真正的图片类型");
   // }
+
   if (@move_uploaded_file($tmp_name, $destination)) {//@错误抑制符，不让用户看到警告
     echo "文件".$filename."上传成功!";
   }else{
@@ -57,41 +60,41 @@ if ($error==0) {
       break;
   }
 }
-return $destination;
+  return $destination;
 }
 
-/**
- * @param $filePath //下载文件的路径
- * @param int $readBuffer //分段下载 每次下载的字节数 默认1024bytes
- * @param array $allowExt //允许下载的文件类型
- * @return void
- */
-function downloadFile($filePath, $readBuffer = 1024, $allowExt = ['jpeg', 'jpg', 'peg', 'gif', 'zip', 'rar', 'txt'])
-{
+// *
+//  * @param $filePath //下载文件的路径
+//  * @param int $readBuffer //分段下载 每次下载的字节数 默认1024bytes
+//  * @param array $allowExt //允许下载的文件类型
+//  * @return void
+ 
+// function downloadFile($filePath, $readBuffer = 1024, $allowExt = ['jpeg', 'jpg', 'peg', 'gif', 'zip', 'rar', 'txt'])
+// {
     //检测下载文件是否存在 并且可读
-    if (!is_file($filePath) && !is_readable($filePath)) {is
-        return false;
-    }
-    //检测文件类型是否允许下载
-    $ext = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
-    if (!in_array($ext, $allowExt)) {
-        return false;
-    }
-    //设置头信息
-    //声明浏览器输出的是字节流
-    header('Content-Type: application/octet-stream');
-    //声明
-    header('Accept-Ranges:bytes');浏览器返回大小是按字节进行计算
-    //告诉浏览器文件的总大小
-    $fileSize = filesize($filePath);//坑 filesize 如果超过2G 低版本php会返回负数
-    header('Content-Length:' . $fileSize); //注意是'Content-Length:' 非Accept-Length
-    //声明下载文件的名称
-    header('Content-Disposition:attachment;filename=' . basename($filePath));//声明作为附件处理和下载后文件的名称
-    //获取文件内容
-    $handle = fopen($filePath, 'rb');//二进制文件用‘rb’模式读取
-    while (!feof($handle) ) { //循环到文件末尾 规定每次读取（向浏览器输出为$readBuffer设置的字节数）
-        echo fread($handle, $readBuffer);
-    }
-    fclose($handle);//关闭文件句柄
-    exit;
-    }
+    // if (!is_file($filePath) && !is_readable($filePath)) {is
+    //     return false;
+    // }
+    // //检测文件类型是否允许下载
+    // $ext = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+    // if (!in_array($ext, $allowExt)) {
+    //     return false;
+    // }
+    // //设置头信息
+    // //声明浏览器输出的是字节流
+    // header('Content-Type: application/octet-stream');
+    // //声明
+    // header('Accept-Ranges:bytes');浏览器返回大小是按字节进行计算
+    // //告诉浏览器文件的总大小
+    // $fileSize = filesize($filePath);//坑 filesize 如果超过2G 低版本php会返回负数
+    // header('Content-Length:' . $fileSize); //注意是'Content-Length:' 非Accept-Length
+    // //声明下载文件的名称
+    // header('Content-Disposition:attachment;filename=' . basename($filePath));//声明作为附件处理和下载后文件的名称
+    // //获取文件内容
+    // $handle = fopen($filePath, 'rb');//二进制文件用‘rb’模式读取
+    // while (!feof($handle) ) { //循环到文件末尾 规定每次读取（向浏览器输出为$readBuffer设置的字节数）
+    //     echo fread($handle, $readBuffer);
+    // }
+    // fclose($handle);//关闭文件句柄
+    // exit;
+    // }
