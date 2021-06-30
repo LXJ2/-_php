@@ -45,6 +45,43 @@ export function upload(data){
 export function uploadFile(data) {
   return http.post('/upload.php',qs.stringify(data));  
 }
+
+export function getFileData(){
+  return http.post('/filesData.php');
+}
+
+export function updataFileStatus(data){
+  return http.post('/updateFileStatus.php',qs.stringify(data));
+}
+
+export function getAuthorData(){
+  return http.get('/authorsData.php');
+}
+
+export function getEditorsData(){
+  return http.get('/editorsData.php');
+}
+
+export function deleteFile(data){
+  return http.post('/deleteFile.php',qs.stringify(data));
+}
+
+export function addAuthors(data){
+  return http.post('/addAuthors.php',qs.stringify(data));
+}
+
+export function addEditors(data){
+  return http.post('/addEditors.php',qs.stringify(data));
+}
+
+export function getUserFile(params){
+  return http({
+    method: 'GET',
+    url: '/userFile.php',
+    params: params,
+  })
+} 
+
   
 
 //return http.post('login.php?phone='+params.phone+'&password='+params.password+'&position='+params.position)

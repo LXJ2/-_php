@@ -29,8 +29,7 @@ function routeData(){
     'name' => 'EditPassword',
     'path' => '/user/edit_password',
     'title' => '修改密码'
-  ),
-  
+  ), 
   array(    
     'id' => 6,
     'pid' => 0,
@@ -121,6 +120,13 @@ function routeData(){
     'path' => '/editorEdit/add',
     'name' => 'AddEditorEdit',
     'title' => '增加审稿人'
+  ),
+  array(    
+    'id' => 19,
+    'pid' => 17,
+    'path' => '/editorEdit/adminEditor',
+    'name' => 'adminEditor',
+    'title' => '管理审稿人'
   ),
  );
   return $route;

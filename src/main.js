@@ -12,11 +12,12 @@ router.beforeEach(async (to, from, next) => {
       if (!store.state.hasAuth) {
         await store.dispatch('setUserRouters');
         const newRoutes = generateRouter(store.state.userRouters);
-        console.log(newRoutes);
+       // console.log(newRoutes);
         router.addRoutes([{
           path:'/home',
           component:Layout,
-          children:newRoutes
+          children:newRoutes,
+          //redirect: '/user/userInfo'
         },{
           path:'*',
           redirect: '/404'

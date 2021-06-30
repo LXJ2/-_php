@@ -45,7 +45,8 @@ export default {
       this.userInfo = data.data;
       store.commit('setUserInfo',data.data);
       
-    })
+    });
+     //location.reload();
   },
   computed: {
     
@@ -57,7 +58,9 @@ export default {
     obj.create_time = localStorage.getItem('srms_project_token');
       logout(obj).then(() => {
         this.$router.replace("/login");
+        location.reload();
       });
+
     },
   },
   components: { 

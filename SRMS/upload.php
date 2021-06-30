@@ -6,7 +6,7 @@ $fileInfo=$_FILES["myfile"];
 $filename=$fileInfo["name"];
 //print_r($tmp_name);
 $maxSize=110485760;//10M,10*1024*1024
-$allowExt=array('jpeg', 'jpg', 'peg', 'gif','doc','pdf','docx', 'zip', 'rar', 'txt');
+$allowExt=array('jpeg', 'jpg', 'peg', 'gif','doc','pdf','docx', 'zip', 'rar', 'txt','wps');
 $path="./files";
 $fileInfo = uploadFile($fileInfo, $path, $allowExt, $maxSize);
 

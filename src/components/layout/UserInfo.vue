@@ -24,6 +24,12 @@
       <el-form-item label="研究方向">
         <el-input v-model="userForm.direction" style="width: 50%" :placeholder="userInfo.direction"></el-input>
       </el-form-item>
+      <el-form-item label="社会职务" v-if="userInfo.social_position">
+        <el-input v-model="userForm.social_position" style="width: 50%" :placeholder="userInfo.social_position"></el-input>
+      </el-form-item>
+      <el-form-item label="银行卡号" v-if="userInfo.bank_card">
+        <el-input v-model="userForm.bank_card" style="width: 50%" :placeholder="userInfo.bank_card"></el-input>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -42,7 +48,8 @@ export default {
         education: "",
         email: "",
         direction: "",
-        desc: "",
+        social_position: "",
+        bank_card: "",
       },
     };
   },

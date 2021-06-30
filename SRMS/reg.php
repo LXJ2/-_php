@@ -11,7 +11,7 @@
 		return_json(3,'手机号已存在');
 	}
 	$arr = array(
-		'name' => isset($_POST['name']) ? $_POST['name'] : $_POST['phone',
+		'name' => isset($_POST['name']) ? $_POST['name'] : $_POST['phone'],
 		'phone' => $_POST['phone'],
 		'password' => sha1($_POST['password']),
         'level' => isset($_POST['level']) ? $_POST['level'] : '',
@@ -19,8 +19,13 @@
 		'education' => isset($_POST['education']) ? $_POST['education'] : '',
 		'email' => isset($_POST['email']) ? $_POST['email'] : '',
 		'direction' => isset($_POST['direction']) ? $_POST['direction'] : '',
-		'creat_time' => time(),
+		//'creat_time' => time(),
 		
 	);
 	$add = insert('author',$arr);
-	return_json(200,'注册成功');
+	var_dump($add);
+	if($add){
+		return_json(200,'添加成功！');
+	}else{
+		return_json(1,'添加失败');
+	}

@@ -49,15 +49,16 @@
 </el-form>
     </div>
 <div v-else="uploadVisible">
-
+     <fileTable :fileInfo="file" @event1="change($event)"></fileTable>
 </div>
     
   
 </template>
 <script>
 // @ is an alias to /src
-
+  import fileTable from '../../views/FileTable';
   import { upload,uploadFile } from '../../api/api';
+  import { clone } from '../../util/utils'
 export default {
   data() {
     return {
@@ -76,9 +77,14 @@ export default {
       uploadFiles: [],
       fileList: [],
       token :'',
+      file: [],
     };
   },
   methods: {
+    change(data) {
+            console.log(data);
+            this.uploadVisible = data;
+    },
     submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
@@ -100,9 +106,14 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          console.log(obj);
+          //console.log(obj);
           uploadFile(obj).then((data) =>{
-              console.log(data);
+              //console.log(data);
+              
+              let obj = data.data;
+              //console.log(obj);
+              this.file.push(obj);
+              //console.log(this.file);
           })
           this.uploadVisible = false;  
         }).catch(() => {
@@ -123,14 +134,13 @@ export default {
       },
     async submitUpload(content) {
             try {
-                const formData = new FormData()
-                formData.append('myfile', content.file)
-                const res = await upload(formData)
+                const formData = new FormData();
+                formData.append('myfile', content.file);
+                const res = await upload(formData);
                 // 把接口返回的对象形式的数据转换成element ui的对象格式
                 this.token = res.data.token;
-                console.log(res);
-                // 这里的url是自己获取后台地址拼接起来的图片地址
-
+                localStorage.setItem("myfile_token", res.data.token);
+                
             } catch (e) {
                 console.log(e);
             }
@@ -140,6 +150,9 @@ export default {
       this.uploadFiles = fileList;
     },
   },
+  components:{
+    fileTable
+  }
 };
 </script>
 <style lang="less">

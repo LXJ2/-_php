@@ -53,6 +53,12 @@
           :placeholder="userInfo.direction"
         ></el-input>
       </el-form-item>
+      <el-form-item label="社会职务" v-if="userInfo.social_position">
+        <el-input v-model="userForm.direction" style="width: 50%" :placeholder="userInfo.social_position"></el-input>
+      </el-form-item>
+      <el-form-item label="银行卡号" v-if="userInfo.bank_card">
+        <el-input v-model="userForm.bank_card" style="width: 50%" :placeholder="userInfo.bank_card"></el-input>
+      </el-form-item>
       <el-form-item size="large">
         <el-button type="primary" @click="onSubmit">提交</el-button>
       </el-form-item>
@@ -75,12 +81,15 @@ export default {
         education: "",
         email: "",
         direction: "",
+        bank_card: "",
+        social_position: "",
       },
     };
   },
   methods: {
     onSubmit() {
-      let a = this.userForm;
+      let that = this;
+      let a = that.userForm;
       let obj = {
         name: a.name,
         phone: a.phone,
@@ -89,24 +98,27 @@ export default {
         education: a.education,
         email: a.email,
         direction: a.direction,
-        position: this.$store.state.uid,
+        position: that.$store.state.uid,
         create_time: localStorage.getItem("srms_project_token"),
       };
       //console.log(obj);
-      this.$confirm("确度修改信息?", "提示", {
+      that.$confirm("确度修改信息?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning",
       })
         .then(() => {
           updataUserInfo(obj).then((data) => {
-            alert('修改成功!');
+           that.$message({
+            type: "success",
+            message: "提交成功！",
+          });
             //console.log(data);
             store.commit("setUserInfo", data.data);
           });
         })
         .catch(() => {
-          this.$message({
+          that.$message({
             type: "info",
             message: "已取消修改",
           });

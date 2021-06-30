@@ -1,17 +1,17 @@
 <template>
-<div class="authorData">
+<div class="editorsData">
   <el-table
-    :data="authorData"
+    :data="editorsData"
     stripe
     style="width: 100%">
     <el-table-column
-      prop="author_id"
-      label="作者编号"
+      prop="editor_id"
+      label="审稿人编号"
       width="50">
     </el-table-column>
     <el-table-column
       prop="name"
-      label="作者姓名"
+      label="审稿人姓名"
       width="100">
     </el-table-column>
     <el-table-column
@@ -25,13 +25,13 @@
       width="100">
     </el-table-column>
     <el-table-column
-      prop="workplace"
-      label="单位"
+      prop="education"
+      label="学历"
       width="100">
     </el-table-column>
     <el-table-column
-      prop="education"
-      label="学历"
+      prop="workplace"
+      label="单位"
       width="100">
     </el-table-column>
     <el-table-column
@@ -45,6 +45,16 @@
       width="100">
     </el-table-column>
     <el-table-column
+      prop="social_position"
+      label="社会职务"
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="bank_card"
+      label="银行卡号"
+      width="180">
+    </el-table-column>
+    <el-table-column
       prop="create_time"
       label="注册时间"
       width="150">
@@ -53,9 +63,9 @@
       label="操作"
       width="200">
       <template slot-scope="scope">
-          <el-button type="text" size="small" icon="el-icon-edit">编辑</el-button>
+          <el-button type="text" size="small" icon="el-icon-edit" >编辑</el-button>
         <el-button
-          @click.native.prevent="deleteRow(scope.$index, authorData)"
+          @click.native.prevent="deleteRow(scope.$index, editorsData)"
           type="text"
           size="small">
           移除
@@ -67,12 +77,12 @@
 </template>
 
 <script>
-import { getAuthorData } from '../../api/api';
+import { getEditorsData } from '../../api/api';
   export default {
     //props: ['fileInfo'],
     data() {
       return {
-          authorData: [],
+          editorsData: [],
           
       }
     },
@@ -83,9 +93,9 @@ import { getAuthorData } from '../../api/api';
       
     },
     created(){
-       getAuthorData().then(data =>{
+       getEditorsData().then(data =>{
            data.data.forEach(item =>{
-               this.authorData.push(item) ;
+               this.editorsData.push(item) ;
            });
        });
     },
@@ -93,7 +103,7 @@ import { getAuthorData } from '../../api/api';
   }
 </script>
 <style lang="less">
-.authorData{
+.editorsData{
    .el-button--small{
         margin-left: 20px;
     }

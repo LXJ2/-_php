@@ -101,6 +101,7 @@ export default {
               this.$router.replace(this.$route.query.from);
             } else {
               this.$router.replace("/");
+              
 
             }
             this.flag = true;
