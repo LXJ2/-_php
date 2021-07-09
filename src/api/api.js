@@ -82,7 +82,3 @@ export function getUserFile(params){
   })
 } 
 
-  
-
-//return http.post('login.php?phone='+params.phone+'&password='+params.password+'&position='+params.position)
-//return http.post('/login.php')
